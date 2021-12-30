@@ -22,7 +22,9 @@ namespace :process do
       received_messages = subscription.pull immediate: false, max: 10
 
       received_messages.each do |msg|
-        puts msg.inspect
+
+        puts topic_name.inspect
+        puts msg.message.data.inspect
         # msg.acknowledge!
       end
     end

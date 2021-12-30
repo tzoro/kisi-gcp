@@ -9,6 +9,7 @@ module ActiveJob
 
       keyfile = "gkey.json"
       gcp_id  = "awesome-beaker-336608"
+      @@g_queue_name = "queue-1"
 
       creds = Google::Cloud::PubSub::Credentials.new keyfile
       @@pubsub = Google::Cloud::PubSub.new(
@@ -22,7 +23,7 @@ module ActiveJob
 
       def enqueue(job) #:nodoc:
 
-        job_name  = job.class.name
+        job_name  = @@g_queue_name
         topic     = @@pubsub.topic job_name
 
         if topic.nil?
@@ -36,7 +37,7 @@ module ActiveJob
           topic.subscribe sub_name
         end
 
-        topic.publish job.job_id
+        topic.publish job.class.name
 
         @scheduler.enqueue JobWrapper.new(job), queue_name: job.queue_name
       end
