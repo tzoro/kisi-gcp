@@ -52,6 +52,7 @@ class FetchAddsJob < ApplicationJob
 
   def perform(*args)
     # Do something later
+    puts "DOING JOOOOOB"
   end
 end
 
