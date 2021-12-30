@@ -1,4 +1,4 @@
-# WORK IN PROGRESS
+# WORK IN PROGRESS - ~80% done
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
