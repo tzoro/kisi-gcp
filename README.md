@@ -1,24 +1,5 @@
-# WORK IN PROGRESS - ~80% done
+# WORK IN PROGRESS - ~90-95% done
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To execute test request just start rails server and visit root page. Rake task that processes gcp queue is **rake process:gcp**. Metrics are running in separate thread and will be visible in server log every second.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Metrics](https://i.ibb.co/5LJCnFv/Screen-Shot-2022-01-02-at-10-13-03-AM.png)
