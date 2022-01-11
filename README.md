@@ -1,4 +1,4 @@
-# WORK IN PROGRESS - ~90-95% done
+# Kisi Backend Challenge
 
 To execute test request just start rails server and visit root page. Rake task that processes gcp queue is **rake process:gcp**. Metrics are running in separate thread and will be visible in server log every second.
 
