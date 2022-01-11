@@ -8,9 +8,10 @@ class FetchAddsJob < ApplicationJob
 
   fallback_wait_time = 5.minutes
   fallback_attempts  = 2
+  morgue_queue       = 'fetch_adds_cleanup'
 
-  retry_on ActiveRecord::Deadlocked, wait: fallback_wait_time, attempts: fallback_attempts
-  retry_on Net::OpenTimeout, Timeout::Error, wait: fallback_wait_time, attempts: fallback_attempts
+  retry_on ActiveRecord::Deadlocked, wait: fallback_wait_time, attempts: fallback_attempts, queue: morgue_queue
+  retry_on Net::OpenTimeout, Timeout::Error, wait: fallback_wait_time, attempts: fallback_attempts, queue: morgue_queue
 
   def perform(*args)
     # Do something later

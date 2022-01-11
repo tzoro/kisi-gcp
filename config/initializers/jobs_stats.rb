@@ -1,6 +1,7 @@
 total_job_count     = 0
 total_job_duration  = 0
 custom_threads      = []
+t1 = Time.now
 
 ActiveSupport::Notifications.subscribe "enqueue.active_job" do |name, started, finished, unique_id, data|
   # Rails.logger.info "#{name} Received! (started: #{started}, finished: #{finished})" # process_action.action_controller Received (started: 2019-05-05 13:43:57 -0800, finished: 2019-05-05 13:43:58 -0800)
